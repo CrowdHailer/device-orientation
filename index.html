@@ -22,18 +22,17 @@
 	var orientationList = document.getElementById('orientation-list');
     function onDeviceReady() {
         /*navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);*/
-		setTimeout(getOrientation, 500);
+		setTimeout(getOrientation, 100);
     }
 
     // onSuccess: Get a snapshot of the current acceleration
     //
 	var num = 0;
-	var max = 100;
+	var max = 10000;
 	function getOrientation () {
-		num++;
 		navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-		if (num < max ) {
-			setTimeout(getOrientation, 500);
+		if (num++ < max ) {
+			setTimeout(getOrientation, 100);
 		}
 		else {
 			alert('Done');
