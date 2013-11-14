@@ -33,7 +33,7 @@
 			itemString += '<li>Acceleration ' + axes[e] + ': <span>' + acceleration[axes[e]] + '</span></li>';
 		}
 		itemString += '<li>Timestamp: <span>' + acceleration.timestamp + '</span></li>';
-        orientationList.innerHTML(itemString);
+        orientationList.innerHTML = itemString;
     }
 	/*function onSuccess(acceleration) {
 		var axes = ['x', 'y', 'z'];
