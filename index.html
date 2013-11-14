@@ -3,6 +3,13 @@
   <head>
     <title>Acceleration Example</title>
 
+
+  </head>
+  <body>
+    <h1>Example</h1>
+    <p>getCurrentAcceleration</p>
+	<ul id="orientation-list"></ul>
+
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
@@ -12,6 +19,7 @@
 
     // device APIs are available
     //
+	var orientationList = document.getElementById('orientation-list');
     function onDeviceReady() {
         navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
     }
@@ -19,13 +27,13 @@
     // onSuccess: Get a snapshot of the current acceleration
     //
     function onSuccess(acceleration) {
-		var string = "";
+		var itemString = "";
 		axes = ['x', 'y', 'z'];
 		for (var e in axes) {
-			string += 'Acceleration ' + axes[e] + ': ' + acceleration[axes[e]] + '\n';
+			itemString += '<li>Acceleration ' + axes[e] + ': <span>' + acceleration[axes[e]] + '</span></li>';
 		}
-		string += 'Timestamp: ' + acceleration.timestamp + '\n';
-        alert(string);
+		itemString += '<li>Timestamp: <span>' + acceleration.timestamp + '</span></li>';
+        orientationList.innerhtml(itemString);
     }
 	/*function onSuccess(acceleration) {
 		var axes = ['x', 'y', 'z'];
@@ -42,10 +50,5 @@
     }
 
     </script>
-  </head>
-  <body>
-    <h1>Example</h1>
-    <p>getCurrentAcceleration</p>
-	<ul id="orientation-list"></ul>
   </body>
 </html>
