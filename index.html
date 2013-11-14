@@ -27,7 +27,7 @@
 	function onSuccess(acceleration) {
 		var axes = ['x', 'y', 'z'];
 		for (e in axes) {
-			var $span = "<span>" + acceleration[e] + "</span>";
+			var $span = "<span>" + acceleration.x + "</span>";
 			alert($span);
 		}
 	}
