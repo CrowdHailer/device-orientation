@@ -19,9 +19,10 @@
     // onSuccess: Get a snapshot of the current acceleration
     //
     function onSuccess(acceleration) {
-	var string = ""
-		for (e in ['x', 'y', 'z']) {
-			string += 'Acceleration X[]: ' + acceleration[e] + '\n';
+		var string = "";
+		axes = ['x', 'y', 'z'];
+		for (var e in axes) {
+			string += 'Acceleration ' + axes[e] + ': ' + acceleration[axes[e]] + '\n';
 		}
 		string += 'Timestamp: ' + acceleration.timestamp + '\n';
         alert(string);
