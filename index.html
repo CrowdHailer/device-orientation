@@ -19,10 +19,12 @@
     // onSuccess: Get a snapshot of the current acceleration
     //
     function onSuccess(acceleration) {
-        alert('Acceleration X[]: ' + acceleration['x'] + '\n' +
-              'Acceleration Y: ' + acceleration.y + '\n' +
-              'Acceleration Z: ' + acceleration.z + '\n' +
-              'Timestamp: '      + acceleration.timestamp + '\n');
+	var string = ""
+		for (e in ['x', 'y', 'z']) {
+			string += 'Acceleration X[]: ' + acceleration[e] + '\n';
+		}
+		string += 'Timestamp: ' + acceleration.timestamp + '\n';
+        alert(string);
     }
 	/*function onSuccess(acceleration) {
 		var axes = ['x', 'y', 'z'];
