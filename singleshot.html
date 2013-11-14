@@ -21,24 +21,11 @@
     //
 	var orientationList = document.getElementById('orientation-list');
     function onDeviceReady() {
-        /*navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);*/
-		setTimeout(getOrientation, 500);
+        navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
     }
 
     // onSuccess: Get a snapshot of the current acceleration
     //
-	var num = 0;
-	var max = 100;
-	function getOrientation () {
-		num++;
-		navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-		if (num < max ) {
-			setTimeout(getOrientation, 500);
-		}
-		else {
-			alert('Done');
-		}
-	}
     function onSuccess(acceleration) {
 		var itemString = "";
 		axes = ['x', 'y', 'z'];
@@ -48,6 +35,13 @@
 		itemString += '<li>Timestamp: <span>' + acceleration.timestamp + '</span></li>';
         orientationList.innerHTML = itemString;
     }
+	/*function onSuccess(acceleration) {
+		var axes = ['x', 'y', 'z'];
+		for (e in axes) {
+			var $span = "<span>" + acceleration.x + "</span>";
+			alert($span);
+		}
+	}*/
 
     // onError: Failed to get the acceleration
     //
